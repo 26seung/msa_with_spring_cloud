@@ -49,3 +49,17 @@ yml 설정이 아닌 방법도 사용이 가능하다.
 
 ---
 
+다시 yml 파일에 설정하는 방식은 다음과 같이 `filters:` 를 추가하여 사용한다.
+
+```
+  cloud:
+    gateway:
+      routes:
+        - id: first-service
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/first-service/**
+          filters:
+            - AddRequestHeader=first-request, first-request-header2
+            - AddResponseHeader=first-response, first-response-header2
+```
