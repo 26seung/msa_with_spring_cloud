@@ -1,27 +1,40 @@
-# Read Me First
-The following was discovered as part of building this project:
+SpringBoot 2.4 이전 버전에서는 `Zuul` 을 이용한 Gateway 방식을 사용 하였으나,  
+2.4 이상 버전 에서는 `cloud gateway` 의존성을 사용한다.
 
-* The original package name 'com.example.apiGateway-service' is invalid and this project uses 'com.example.apiGatewayservice' instead.
+`zuul` 은 `Tomcat` 로 구동 / 
+`cloud gateway` 은 `Netty` 로 구동
 
-# Getting Started
+---
+#### yml 설정파일
+```
+server:
+  port: 8000
 
-### Reference Documentation
-For further reference, please consider the following sections:
+spring:
+  application:
+    name: apiGateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: first-service
+          uri: http://127.0.0.1:8081/
+          predicates:
+            - Path=/first-service/**
+        - id: second-service
+          uri: http://127.0.0.1:8082/
+          predicates:
+            - Path=/second-service/**
 
-* [Official Gradle documentation](https://docs.gradle.org)
-* [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.6.12/gradle-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.6.12/gradle-plugin/reference/html/#build-image)
-* [Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/)
-* [Eureka Discovery Client](https://docs.spring.io/spring-cloud-netflix/docs/current/reference/html/#service-discovery-eureka-clients)
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+```
 
-### Guides
-The following guides illustrate how to use some features concretely:
+`cloud.gateway.routes:` 를 등록하여 각 서비스를 등록한다.  
+`http://localhost:8081(8082)/first(second)-service/welcome` 형식으로 접속 가능하던 주소가,  
+`http:localhost:8000/first(second)-service/**` 형식으로 매핑된다.
 
-* [Using Spring Cloud Gateway](https://github.com/spring-cloud-samples/spring-cloud-gateway-sample)
-* [Service Registration and Discovery with Eureka and Spring Cloud](https://spring.io/guides/gs/service-registration-and-discovery/)
-
-### Additional Links
-These additional references should also help you:
-
-* [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
-
+---
