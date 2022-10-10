@@ -38,3 +38,14 @@ eureka:
 `http:localhost:8000/first(second)-service/**` 형식으로 매핑된다.
 
 ---
+
+yml 설정이 아닌 방법도 사용이 가능하다.
+
+`RouteLocator` 를 `@Bean` 으로 받아 사용하면 된다.
+![image](https://user-images.githubusercontent.com/79305451/194903355-13db58c1-60d4-4379-af0b-a9d175da9c53.png)
+
+`Path ("first-service")` 가 들어오면 `uri ("http://localhost:8081")` 로 이동한다.
+해당 방식으로 `Header` 값을 요청하고 받아오는 것이 가능하다.
+
+---
+
