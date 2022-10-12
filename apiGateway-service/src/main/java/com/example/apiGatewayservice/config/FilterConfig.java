@@ -5,6 +5,7 @@ import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+// yml 설정 외에도 해당 메서드 사용으로 gateway 사용이 가능하다.
 //@Configuration
 public class FilterConfig {
 
