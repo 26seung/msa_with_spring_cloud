@@ -68,3 +68,7 @@ yml 설정이 아닌 방법도 사용이 가능하다.
 #### CustomFilter 사용
 
 `AbstractGatewayFilterFactory`를 상속 받아서 `apply` 메서드를 사용하여 적용한다.
+
+#### GlobalFilter 사용
+
+GlobalFilter 는 가장 먼저 시작되고 가장 마지막에 수행된다.
