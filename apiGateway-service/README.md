@@ -63,3 +63,8 @@ yml 설정이 아닌 방법도 사용이 가능하다.
             - AddRequestHeader=first-request, first-request-header2
             - AddResponseHeader=first-response, first-response-header2
 ```
+---
+
+#### CustomFilter 사용
+
+`AbstractGatewayFilterFactory`를 상속 받아서 `apply` 메서드를 사용하여 적용한다.
