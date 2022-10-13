@@ -77,3 +77,20 @@ GlobalFilter 는 가장 먼저 시작되고 가장 마지막에 수행된다.
 
 `LoggingFilter` 는 `GlobalFilter` 와 `CustomFilter` 중간에 실행되어 짐  
 `apply` 메서드 내에서 `Ordered.HIGHEST_PRECEDENCE` 사용으로 우선순위를 설정해 줄 수 있다.
+
+
+----
+
+#### Load Balancer 사용
+
+`Eureka` 의 사용용도는 `Service Discovery / Registry` 의 역활을 하게 된다.  
+모든 서비스에 대한 `IP정보`를 기억하고 있지 않아도 된다. yml 설정 `routes:uri` 에 `serviceName`으로 호출 가능
+
+새로운 포트의 사용을 위해서 `Edit Configurations` 설정의 `VM옵션` 에 `-Dserver.port=9092` 입력하여 새로운 포트를 사용하여 실행할 수 있다. 
+
+<img width="1338" alt="image" src="https://user-images.githubusercontent.com/79305451/195637888-2592c022-f394-451c-851f-4da6123c6fc0.png">
+
+이렇게 수행이 되고 로드밸런서에 의해 분산처리 진행이 가능하다.
+
+랜덤포트 사용
+
