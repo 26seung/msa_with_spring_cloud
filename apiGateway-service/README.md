@@ -84,13 +84,38 @@ GlobalFilter 는 가장 먼저 시작되고 가장 마지막에 수행된다.
 #### Load Balancer 사용
 
 `Eureka` 의 사용용도는 `Service Discovery / Registry` 의 역활을 하게 된다.  
-모든 서비스에 대한 `IP정보`를 기억하고 있지 않아도 된다. yml 설정 `routes:uri` 에 `serviceName`으로 호출 가능
+모든 서비스에 대한 `IP정보`를 기억하고 있지 않아도 된다. yml 설정 `routes:uri` 에 `serviceName`으로 호출 가능 `예시 -> uri: lb://MY-FIRST-SERVICE`
+
+yml 파일에 Eureka 설정 등록을 진행 필요
+```
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+```
+
 
 새로운 포트의 사용을 위해서 `Edit Configurations` 설정의 `VM옵션` 에 `-Dserver.port=9092` 입력하여 새로운 포트를 사용하여 실행할 수 있다. 
 
 <img width="1338" alt="image" src="https://user-images.githubusercontent.com/79305451/195637888-2592c022-f394-451c-851f-4da6123c6fc0.png">
 
-이렇게 수행이 되고 로드밸런서에 의해 분산처리 진행이 가능하다.
+이렇게 수행이 되고 로드밸런서에 의해 분산처리 되는 진행이 가능하다.
 
-랜덤포트 사용
+---
+
+랜덤포트를 사용하여 고정적인 포트번호가 아닌 유동적인 포트번호를 사용하여 여러 파일을 실행시킬 수 있다. 
+
+ 랜덤포트를 사용하기 위해서는
+- `port: 0` 으로 설정  / 대시보드에는 0 인 포트 목록 하나로 보여지게 된다. 
+- 구분을 위해서는   `instance: instance-id` 입력을 해주어야 한다.
+
+랜덤포트 사용 시 포트번호 확인하는법
+1. `Environment env;` 생성자 사용하여 `env.getProperty("local.server.port")` 받아올 수 있음
+2.     public String check(HttpServletRequest request){
+        log.info("Server port={}",request.getServerPort());
+        return null;}
+---
+
 
