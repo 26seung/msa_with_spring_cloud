@@ -31,13 +31,11 @@ public class GlobalFilter extends AbstractGatewayFilterFactory<GlobalFilter.Conf
             ServerHttpResponse response = exchange.getResponse();
 
             log.info("Global filter baseMessage: {}", config.getBaseMessage());
-
             if (config.isPreLogger()){
                 log.info("Global filter Start: request id -> {}", request.getId());
             }
 
             return chain.filter(exchange).then(Mono.fromRunnable(()->{
-
                 if (config.isPostLogger()){
                     log.info("Global filter End: response code -> {}", response.getStatusCode());
                 }

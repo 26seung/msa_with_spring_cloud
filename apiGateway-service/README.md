@@ -72,3 +72,8 @@ yml 설정이 아닌 방법도 사용이 가능하다.
 #### GlobalFilter 사용
 
 GlobalFilter 는 가장 먼저 시작되고 가장 마지막에 수행된다.
+
+#### LoggingFilter 사용
+
+`LoggingFilter` 는 `GlobalFilter` 와 `CustomFilter` 중간에 실행되어 짐  
+`apply` 메서드 내에서 `Ordered.HIGHEST_PRECEDENCE` 사용으로 우선순위를 설정해 줄 수 있다.
