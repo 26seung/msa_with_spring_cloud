@@ -110,6 +110,10 @@ eureka:
  랜덤포트를 사용하기 위해서는
 - `port: 0` 으로 설정  / 대시보드에는 0 인 포트 목록 하나로 보여지게 된다. 
 - 구분을 위해서는   `instance: instance-id` 입력을 해주어야 한다.
+```
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+```
 
 랜덤포트 사용 시 포트번호 확인하는법
 1. `Environment env;` 생성자 사용하여 `env.getProperty("local.server.port")` 받아올 수 있음
