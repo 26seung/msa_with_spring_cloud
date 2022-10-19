@@ -13,3 +13,27 @@ server:
     instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
 ```
 를 yml 에 추가하면 구분하여 확인이 가능하다
+
+---
+
+유레카 서비스를 가동하기 위해서 앞서 만들어 놓은 `discoveryservice` 프로젝트를 수행해 주도록 한다
+
+인텔리제이는 많은 리소스를 잡아먹기 때문에 새창을 열어서 프로젝트를 가동하는 것은 부담이 될 수 있다.
+그래서 `터미널` 환경에서 프로젝트를 가동면 부담을 줄일 수 있다.
+
+gradle 를 설치 하지 않아도 다음과 같이 인텔리제이 안의 내장 gradle 을 사용하여 명령어를 입력할 수 있다.
+```
+jar 파일 빌드 명령어
+./gradlew build 
+
+그냥 프로젝트 실행 명령어
+./gradlew bootrun
+```
+
+---
+
+yml 파일의 내용을 가져오기 위해서 다음과 같은 방법을 이용한다.
+- 1번 방법 : `Environment` 의 `env.getProperty("greeting.message")` 사용
+- 2번 방법 : `@Value("${greeting.message}")` 사용
+
+하는 방법들이 존재 한다.
