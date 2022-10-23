@@ -29,6 +29,15 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	runtimeOnly 'com.h2database:h2'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '2.7.4'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.7.4'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.7.4'
+	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.1.0'
+
+
+
 }
 
 dependencyManagement {
