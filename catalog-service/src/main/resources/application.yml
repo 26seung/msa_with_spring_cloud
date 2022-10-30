@@ -16,6 +16,7 @@ spring:
       ddl-auto: create-drop
     show-sql: true
     generate-ddl: true
+  defer-datasource-initialization: true
   datasource:
     url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver
