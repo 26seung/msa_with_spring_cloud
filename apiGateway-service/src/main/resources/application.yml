@@ -13,6 +13,11 @@ spring:
             preLogger: true
             postLogger: true
       routes:
+#        orderService
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/order-service/**
 #        userService
         - id: user-service
           uri: lb://USER-SERVICE

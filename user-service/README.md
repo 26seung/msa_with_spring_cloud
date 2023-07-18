@@ -1,4 +1,6 @@
-eureka.client.fetch-registry= true 는 EUREKA 서버로부터 인스턴스들의 정보를 주기적으로 가져올 것인지 설정하는 속성입니다. true로 설정하면, 갱신 된 정보를 받겠다는 설정입니다.
+
+
+yml 설정 : `eureka.client.fetch-registry= true` 는 EUREKA 서버로부터 인스턴스들의 정보를 주기적으로 가져올 것인지 설정하는 속성입니다. true로 설정하면, 갱신 된 정보를 받겠다는 설정입니다.
 
 ```
 server:

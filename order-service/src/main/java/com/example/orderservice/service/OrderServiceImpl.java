@@ -32,8 +32,8 @@ public class OrderServiceImpl implements OrderService {
 
         orderRepository.save(orderEntity);
 
-        OrderDto returnUserDto = mapper.map(orderEntity, OrderDto.class);
-        return returnUserDto;
+        OrderDto returnValue = mapper.map(orderEntity, OrderDto.class);
+        return returnValue;
     }
 
     @Override
