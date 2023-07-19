@@ -46,3 +46,12 @@ h2 데이터 베이스 사용 시 JDBC 드라이버의 의존성도 같이 사�
 
 ---
 
+### 로그인처리 진행 
+
+1. 로그인 진행에 사용되는 vo 타입 모델 생성
+2. `UsernamePasswordAuthenticationFilter`를 상속받는 클래스를 생성하여 필요 메서드를 구현해 준다.
+   - `attemptAuthentication` 메서드 구현 : 
+     - 시큐리티에서 사용하는 값의 형태로 변환하기 위해서 `UsernamePasswordAuthenticationToken` 형태의 값으로 변환이 필요.
+       ``` java
+        new UsernamePasswordAuthenticationToken("id 값", "pw 값", "권한");
+        ```
