@@ -49,7 +49,7 @@ public class UserController {
     }
 
 
-    //
+    // 회원가입
     @PostMapping("/users")
     public ResponseEntity<?> createUser(@RequestBody RequestUser user){
 

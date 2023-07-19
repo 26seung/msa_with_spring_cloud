@@ -4,7 +4,7 @@ server:
 spring:
   application:
     name: user-service
-
+# DB (h2) 연결
   h2:
     console:
       enabled: true
