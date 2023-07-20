@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user-service/")
+//@RequestMapping("/user-service/")
 public class UserController {
 
     //  yml 파일의 내용을 가져오기 위해서는
