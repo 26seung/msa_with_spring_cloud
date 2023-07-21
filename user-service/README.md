@@ -58,4 +58,5 @@ h2 데이터 베이스 사용 시 JDBC 드라이버의 의존성도 같이 사�
      - 변경된 값을 `AuthenticationManager`에 전달하여 인증을 요청.
    - `UserDetailsService`를 상속받아서 `loadUserByUsername` 메서드를 구현 : 
      - `uri가 : /login`로 이동시 DB에 저장된 유저의 정보를 찾는 역활을 한다.
+     - 
    

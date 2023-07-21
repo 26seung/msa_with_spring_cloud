@@ -29,3 +29,7 @@ eureka:
 greeting:
   message: Welcome to the Simple E-Commerce.
   message2: Welcome to the Simple E-Commerce2.
+
+logging:
+  level:
+    com.example.userservice: DEBUG
