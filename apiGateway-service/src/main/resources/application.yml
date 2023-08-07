@@ -49,6 +49,7 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            - AuthorizationHeaderFilter
 
 #        catalogService
         - id: catalog-service
@@ -84,3 +85,8 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka
+
+
+token:
+  expiration_time: 86400000
+  secret: secretPw
